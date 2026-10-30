@@ -6,7 +6,7 @@ appointments, events, clubs, school bus paths, forum posts, chat, claims and sat
 
 ## Tech stack
 
-- Java 8, Spring Boot 2.4 (Web, Data JPA / Hibernate, Web Services, DevTools)
+- Java 8, Spring Boot 2.7 (Web, Data JPA / Hibernate, Web Services, DevTools)
 - MySQL
 - Maven, JUnit 4
 
