@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.4</version>
+		<version>2.7.18</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>se.pidev</groupId>
@@ -15,6 +15,10 @@
 	<description>SocialNetwork-ParentsKindergartens</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<!-- Correctifs de sécurité sur la même ligne que celle gérée par Spring Boot 2.7.18 -->
+		<spring-framework.version>5.3.39</spring-framework.version>
+		<tomcat.version>9.0.123</tomcat.version>
+		<mysql.version>8.4.0</mysql.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -37,8 +41,8 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -49,7 +53,13 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version><!--$NO-MVN-MAN-VER$-->
+			<scope>test</scope>
+		</dependency>
+		<!-- UserServiceImplTest et MeetingServiceImplTest sont écrits en JUnit 4 (@RunWith) : sans le moteur
+		     vintage, la plateforme JUnit 5 de spring-boot-starter-test les ignore en silence. Version gérée par Spring Boot. -->
+		<dependency>
+			<groupId>org.junit.vintage</groupId>
+			<artifactId>junit-vintage-engine</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
