@@ -55,6 +55,13 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- UserServiceImplTest et MeetingServiceImplTest sont écrits en JUnit 4 (@RunWith) : sans le moteur
+		     vintage, la plateforme JUnit 5 de spring-boot-starter-test les ignore en silence. Version gérée par Spring Boot. -->
+		<dependency>
+			<groupId>org.junit.vintage</groupId>
+			<artifactId>junit-vintage-engine</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
